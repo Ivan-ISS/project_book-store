@@ -23,7 +23,7 @@ const entities = [
       img: 'images/jpeg/projects-img3.jpg',
       imgMobile: 'images/jpeg/projects-img3.jpg'
     }
-]
+];
 
 /* const textCity = document.querySelector('.projects__data-text_entity_city')
 const textApartmentArea = document.querySelector('.projects__data-text_entity_area')
@@ -155,4 +155,4 @@ btnSwitch()
 circleSwitch()
 startPosition() */
 
-export {entities}
+export {entities};
