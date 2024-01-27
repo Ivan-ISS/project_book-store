@@ -87,9 +87,9 @@ body {
   border-radius: 50%;
   background: #efeef6;
   cursor: pointer;
-}
-.selection .selection__circle-btn:focus {
-  background-color: #9e98dc;
+  /*  &:focus {
+       background-color: #9e98dc;
+   } */
 }
 .selection .selection__circle-btn-focus {
   background-color: #9e98dc;

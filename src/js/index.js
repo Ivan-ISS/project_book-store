@@ -1,4 +1,4 @@
-import { circleSwitch } from './slider';
+import { circleSwitch, automaticSwitch } from './slider';
 import '../styles/styles.scss';
 
 document.write('Hello, webpack-dev-server');
@@ -21,3 +21,4 @@ const btnCircle = document.querySelectorAll('.selection__circle-btn');
 const cssBtnCircle = 'selection__circle-btn-focus';
 
 circleSwitch(btnCircle, cssBtnCircle, picture, entities);
+automaticSwitch(btnCircle, cssBtnCircle, picture, entities);
