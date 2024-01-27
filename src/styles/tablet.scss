@@ -1,0 +1,64 @@
+@import "color";
+@import "_variables";
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+/* common helper classes---------------------------------------------------------------------- */
+
+    .container-common {
+        /* max-width: 1120px;
+        margin: 0 auto; */
+        padding: 0px 35px;
+        /* box-sizing: content-box; */
+    }
+
+/* BEM-blocks--------------------------------------------------------------------------------- */
+
+    .selection {
+        gap: 20px;
+    }
+
+/* header------------------------------------------------------------------------------------- */
+
+    .header {
+
+        .header__menu {
+            margin: 0 20px;
+
+            .menu__list {
+                column-gap: 25px;
+            }
+        }
+
+        .header__tools {
+            gap: 20px;
+        }
+    }
+
+/* main--------------------------------------------------------------------------------------- */
+
+
+
+/* banner------------------------------------------------------------------------------------- */
+
+    .banner {
+
+        .banner__image-block {
+
+            .banner__wrap-card {
+                right: -41px;
+                row-gap: 50px;
+
+                .banner__card-link {
+                    padding: 10px;
+                    font-size: 16px;
+                    max-width: 120px;
+                }
+
+                .banner__card-link_color_pink {
+                    margin-left: 30px;
+                }
+            }
+        }
+    }
+}

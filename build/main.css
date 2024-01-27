@@ -1,6 +1,290 @@
 /*!*****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/styles.scss ***!
   \*****************************************************************************************************************/
-html {
-  background-color: #ebebeb;
+/* reset------------------------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Montserrat";
+  font-weight: 700;
+  line-height: normal;
+  color: #5c6a79;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* common helper classes---------------------------------------------------------------------- */
+.container-common {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0px 75px;
+  box-sizing: content-box;
+}
+
+/* BEM-blocks--------------------------------------------------------------------------------- */
+.burger-btn {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+  background-color: transparent;
+  height: 30px;
+  padding: 8.5px 5.5px;
+  cursor: pointer;
+  display: none;
+}
+.burger-btn .burger-btn__band {
+  display: block;
+  width: 16px;
+  border: solid 1.5px #1c2a39;
+  border-radius: 3px;
+}
+
+.selection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.selection .selection__circle-btn {
+  padding: 0;
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #efeef6;
+  cursor: pointer;
+}
+.selection .selection__circle-btn:focus {
+  background-color: #9e98dc;
+}
+.selection .selection__circle-btn-focus {
+  background-color: #9e98dc;
+}
+
+/* header------------------------------------------------------------------------------------- */
+.header {
+  width: 100%;
+}
+.header .header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 116px;
+}
+.header .header__logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c2a39;
+}
+.header .header__menu {
+  padding: 5px 0;
+  /* margin: 0 auto; */
+}
+.header .header__menu .menu__list {
+  display: flex;
+  column-gap: 40px;
+  flex-wrap: wrap;
+}
+.header .header__menu .menu__link {
+  color: #5c6a79;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.header .header__menu .menu__link:hover, .header .header__menu .menu__link:focus {
+  font-weight: 900;
+  color: #1c2a39;
+}
+.header .header__tools {
+  display: flex;
+  gap: 40px;
+}
+.header .header__tools .header__btn {
+  background: transparent;
+  cursor: pointer;
+}
+.header .header__tools .header__btn svg path {
+  fill: #1c2a39;
+}
+
+/* main--------------------------------------------------------------------------------------- */
+.page {
+  flex: 1 1 auto;
+}
+
+/* banner------------------------------------------------------------------------------------- */
+.banner .banner__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner .banner__image-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 17px;
+}
+.banner .banner__image-block .banner__wrap-card {
+  position: absolute;
+  right: -172px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 76px;
+  height: 100%;
+  /* width: 100%; */
+  padding: 7% 0 7% 86%;
+}
+.banner .banner__image-block .banner__wrap-card .banner__card-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  row-gap: 4px;
+  max-width: 150px;
+  height: 100%;
+  /* width: 100%; */
+  padding: 20px;
+  color: #1c2a39;
+  font-size: 18px;
+  box-shadow: 0px 24px 36px 0px rgba(53, 49, 84, 0.28);
+  text-transform: uppercase;
+}
+.banner .banner__image-block .banner__wrap-card .banner__card-link_color_cornflower {
+  background: #9e98dc;
+}
+.banner .banner__image-block .banner__wrap-card .banner__card-link_color_pink {
+  background: #ff8fe6;
+  margin-left: 86px;
+}
+.banner .banner__image-slide {
+  max-width: 1120px;
+  width: 100%;
+  box-shadow: 0px 6px 59px rgba(53, 49, 84, 0.08);
+}
+
+@media (max-width: 1420px) {
+  .banner .banner__image-block .banner__wrap-card {
+    right: -86px;
+    row-gap: 50px;
+  }
+  .banner .banner__image-block .banner__wrap-card .banner__card-link_color_pink {
+    margin-left: 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* common helper classes---------------------------------------------------------------------- */
+  .container-common {
+    /* max-width: 1120px;
+    margin: 0 auto; */
+    padding: 0px 35px;
+    /* box-sizing: content-box; */
+  }
+  /* BEM-blocks--------------------------------------------------------------------------------- */
+  .selection {
+    gap: 20px;
+  }
+  /* header------------------------------------------------------------------------------------- */
+  .header .header__menu {
+    margin: 0 20px;
+  }
+  .header .header__menu .menu__list {
+    column-gap: 25px;
+  }
+  .header .header__tools {
+    gap: 20px;
+  }
+  /* main--------------------------------------------------------------------------------------- */
+  /* banner------------------------------------------------------------------------------------- */
+  .banner .banner__image-block .banner__wrap-card {
+    right: -41px;
+    row-gap: 50px;
+  }
+  .banner .banner__image-block .banner__wrap-card .banner__card-link {
+    padding: 10px;
+    font-size: 16px;
+    max-width: 120px;
+  }
+  .banner .banner__image-block .banner__wrap-card .banner__card-link_color_pink {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 767px) {
+  /* common helper classes---------------------------------------------------------------------- */
+  .container-common {
+    /* max-width: 1120px;
+    margin: 0 auto; */
+    padding: 0px 15px;
+    min-width: 300px;
+    /* box-sizing: content-box; */
+  }
+  /* BEM-blocks--------------------------------------------------------------------------------- */
+  .burger-btn {
+    display: flex;
+  }
+  .selection {
+    gap: 25px;
+  }
+  /* header------------------------------------------------------------------------------------- */
+  .header .header__container {
+    min-height: 80px;
+  }
+  .header .header__logo {
+    font-size: 22px;
+    align-items: start;
+  }
+  .header .header__menu {
+    display: none;
+  }
+  .header .header__tools {
+    gap: 20px;
+  }
+  /* banner------------------------------------------------------------------------------------- */
+  .banner .banner__image-block .banner__wrap-card {
+    right: -25px;
+    row-gap: 10px;
+    padding: 4% 0 4% 80%;
+  }
+  .banner .banner__image-block .banner__wrap-card .banner__card-link {
+    padding: 5px;
+    font-size: 12px;
+    max-width: 80px;
+  }
+  .banner .banner__image-block .banner__wrap-card .banner__card-link svg {
+    width: 35px;
+  }
+  .banner .banner__image-block .banner__wrap-card .banner__card-link_color_pink {
+    margin-left: 15px;
+  }
 }
