@@ -1,4 +1,5 @@
 import { circleSwitch, automaticSwitch } from './slider';
+import { BookCategories } from './bookCategories';
 import '../styles/styles.scss';
 
 document.write('Hello, webpack-dev-server');
@@ -22,3 +23,41 @@ const cssBtnCircle = 'selection__circle-btn-focus';
 
 circleSwitch(btnCircle, cssBtnCircle, picture, entities);
 automaticSwitch(btnCircle, cssBtnCircle, picture, entities);
+
+
+
+
+const btnCategory = document.querySelectorAll('.showcase__btn-category');
+console.log(btnCategory);
+
+const bookCategory = new BookCategories('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 1, 'en', btnCategory);
+bookCategory.request();
+
+/* function useRequest(url) {
+    return fetch(url)
+        .then((response) => {
+            console.log('response', response);
+            const result = response.json();
+            console.log('result', result);
+            return result;
+        })
+        .then((data) => {
+            console.log(data);
+            //const pictureJSON = [];
+            
+            //data.forEach((item) => {
+            //    pictureJSON.push({
+            //        src: item.download_url,
+            //        author: item.author,
+            //    });
+            //});
+            //localStorage.setItem('pictureJSON', JSON.stringify(pictureJSON));
+          //console.log(localStorage)
+        })
+        .catch(() => { console.log('error'); });
+}
+
+btnCategory.addEventListener('click', () => {
+    let url = 'https://www.googleapis.com/books/v1/volumes?q=%22subject:Business%22&key=AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8&printType=books&startIndex=0&maxResults=1&langRestrict=en';
+    useRequest(url);
+}); */
