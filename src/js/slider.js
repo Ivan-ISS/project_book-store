@@ -1,4 +1,4 @@
-// Переменные используемые слайдером:
+// Переменные используемые в модуле:
 // btnCircle - массив с основными кнопками слайдера (круглыми) ===> const btnCircle = document.querySelectorAll('.selection__circle-btn');
 // cssBtnCircle - наименование селектора (класса), которому заданы стили "нажатой" кнопки;
 // picture - элемент img (содержащий scr изображения) ===> const picture = document.querySelector('.banner__image-slide');

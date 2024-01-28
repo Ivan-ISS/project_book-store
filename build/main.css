@@ -145,6 +145,10 @@ body {
   flex: 1 1 auto;
 }
 
+.page__banner {
+  margin-bottom: 105px;
+}
+
 /* banner------------------------------------------------------------------------------------- */
 .banner .banner__container {
   display: flex;
@@ -203,6 +207,163 @@ body {
     margin-left: 30px;
   }
 }
+/* showcase----------------------------------------------------------------------------------- */
+.showcase .showcase__container {
+  display: flex;
+}
+.showcase .showcase__list-categories {
+  display: flex;
+  flex-direction: column;
+  row-gap: 23px;
+  max-width: 418px;
+  padding: 45px 138px 81px 158px;
+  background: #efeef6;
+  margin-left: -160px;
+}
+.showcase .showcase__list-categories .showcase__item-category {
+  min-width: 140px;
+  max-height: 15px;
+}
+.showcase .showcase__list-categories .showcase__btn-category {
+  background: transparent;
+  font-family: "Montserrat";
+  font-weight: 500;
+  line-height: normal;
+  font-size: 12px;
+  color: #5c6a79;
+  cursor: pointer;
+  position: relative;
+}
+.showcase .showcase__list-categories .showcase__btn-category:hover::before, .showcase .showcase__list-categories .showcase__btn-category:focus::before {
+  content: "";
+  position: absolute;
+  top: 4.5px;
+  left: -14px;
+  width: 6px;
+  height: 6px;
+  background: #756ad3;
+  border-radius: 50%;
+}
+.showcase .showcase__list-categories .showcase__btn-category:hover, .showcase .showcase__list-categories .showcase__btn-category:focus {
+  color: #1c2a39;
+  font-size: 12px;
+  font-weight: 700;
+}
+.showcase .showcase__set-books {
+  margin-left: -60px;
+  margin-bottom: 96px;
+  padding-top: 46px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  column-gap: 76px;
+  row-gap: 96px;
+}
+.showcase .showcase__set-books .showcase__book {
+  display: flex;
+  column-gap: 36px;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-cover {
+  min-width: 212px;
+  max-height: 300px;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-cover .showcase__book-cover-img {
+  width: 100%;
+  height: 100%;
+  /* min-width: 212px; */
+  /* max-height: 300px; */
+  object-fit: cover;
+  box-shadow: 0px 24px 36px 0px rgba(53, 49, 84, 0.28);
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info {
+  padding: 48px 0;
+  max-width: 176px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  justify-content: space-between;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 10px;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-data .showcase__book-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #1c2a39;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-data .showcase__book-rating {
+  display: flex;
+  column-gap: 6px;
+  flex-wrap: wrap;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-data .showcase__book-rating .showcase__stars {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  white-space: nowrap; */
+  max-height: 41px;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-price {
+  font-weight: 700;
+  font-size: 13px;
+  color: #1c2a39;
+  text-transform: uppercase;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn {
+  background: transparent;
+  width: 100%;
+  padding: 18px 0;
+  border: solid 1px #4c3db2;
+  color: #4c3db2;
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn:hover {
+  background: rgba(76, 61, 178, 0.05);
+}
+
+@media (max-width: 1140px) {
+  .showcase .showcase__list-categories {
+    max-width: 418px;
+    padding: 45px 80px 81px 158px;
+  }
+}
+/* button-load-------------------------------------------------------------------------------- */
+.button-load__container {
+  display: flex;
+  justify-content: center;
+}
+.button-load__container .button-load__more-btn {
+  margin-left: 17.5%;
+  background: transparent;
+  padding: 18px 61px;
+  border: solid 1px #4c3db2;
+  color: #4c3db2;
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.button-load__container .button-load__more-btn:hover {
+  background: rgba(76, 61, 178, 0.05);
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   /* common helper classes---------------------------------------------------------------------- */
   .container-common {
@@ -226,6 +387,9 @@ body {
     gap: 20px;
   }
   /* main--------------------------------------------------------------------------------------- */
+  .page__banner {
+    margin-bottom: 55px;
+  }
   /* banner------------------------------------------------------------------------------------- */
   .banner .banner__image-block .banner__wrap-card {
     right: -41px;
@@ -238,6 +402,32 @@ body {
   }
   .banner .banner__image-block .banner__wrap-card .banner__card-link_color_pink {
     margin-left: 30px;
+  }
+  /* showcase----------------------------------------------------------------------------------- */
+  .showcase .showcase__list-categories {
+    max-width: 418px;
+    padding: 45px 60px 81px 158px;
+    margin-left: -160px;
+  }
+  .showcase .showcase__set-books {
+    margin-left: -60px;
+    padding-top: 46px;
+    column-gap: 46px;
+    row-gap: 76px;
+  }
+  .showcase .showcase__set-books .showcase__book {
+    column-gap: 26px;
+  }
+  .showcase .showcase__set-books .showcase__book .showcase__book-cover {
+    min-width: 140px;
+    max-height: 198px;
+  }
+  .showcase .showcase__set-books .showcase__book .showcase__book-info {
+    padding: 5px 0;
+    row-gap: 10px;
+  }
+  .showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn {
+    padding: 8px 0;
   }
 }
 @media (max-width: 767px) {
@@ -270,6 +460,10 @@ body {
   .header .header__tools {
     gap: 20px;
   }
+  /* main--------------------------------------------------------------------------------------- */
+  .page__banner {
+    margin-bottom: 55px;
+  }
   /* banner------------------------------------------------------------------------------------- */
   .banner .banner__image-block .banner__wrap-card {
     right: -25px;
@@ -286,5 +480,47 @@ body {
   }
   .banner .banner__image-block .banner__wrap-card .banner__card-link_color_pink {
     margin-left: 15px;
+  }
+  /* showcase----------------------------------------------------------------------------------- */
+  .showcase .showcase__container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .showcase .showcase__list-categories {
+    align-self: start;
+    max-width: 100%;
+    min-width: 320px;
+    padding: 25px 10px 30px 17px;
+    margin-left: -15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 15px;
+  }
+  .showcase .showcase__list-categories .showcase__item-category {
+    min-width: 130px;
+  }
+  .showcase .showcase__set-books {
+    margin-left: 0;
+    padding-top: 46px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-auto-rows: 1fr;
+    row-gap: 56px;
+  }
+  .showcase .showcase__set-books .showcase__book .showcase__book-cover {
+    min-width: 140px;
+    max-width: 212px;
+    min-height: 198px;
+  }
+  .showcase .showcase__set-books .showcase__book .showcase__book-info {
+    padding: 1% 0;
+    row-gap: 10px;
+  }
+  .showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn {
+    padding: 13px 0;
+  }
+  /* button-load-------------------------------------------------------------------------------- */
+  .button-load__container .button-load__more-btn {
+    margin-left: 0;
   }
 }

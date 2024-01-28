@@ -37,7 +37,9 @@
 
 /* main--------------------------------------------------------------------------------------- */
 
-
+    .page__banner {
+        margin-bottom: 55px;
+    }
 
 /* banner------------------------------------------------------------------------------------- */
 
@@ -57,6 +59,42 @@
 
                 .banner__card-link_color_pink {
                     margin-left: 30px;
+                }
+            }
+        }
+    }
+
+/* showcase----------------------------------------------------------------------------------- */
+
+    .showcase {
+
+        .showcase__list-categories {
+            max-width: 418px;
+            padding: 45px 60px 81px 158px;
+            margin-left: -160px;
+        }
+
+        .showcase__set-books {
+            margin-left: -60px;
+            padding-top: 46px;
+            column-gap: 46px;
+            row-gap: 76px;
+
+            .showcase__book {
+                column-gap: 26px;
+
+                .showcase__book-cover {
+                    min-width: 140px;
+                    max-height: 198px;
+                }
+
+                .showcase__book-info {
+                    padding: 5px 0;
+                    row-gap: 10px;
+
+                    .showcase__buy-btn {
+                        padding: 8px 0;
+                    }
                 }
             }
         }

@@ -90,7 +90,7 @@ body {
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: #efeef6;
+        background: $base-gray-background;
         cursor: pointer;
 
        /*  &:focus {
@@ -166,6 +166,10 @@ body {
     flex: 1 1 auto;
 }
 
+.page__banner {
+    margin-bottom: 105px;
+}
+
 /* banner------------------------------------------------------------------------------------- */
 
 .banner {
@@ -239,6 +243,197 @@ body {
                     margin-left: 30px;
                 }
             }
+        }
+    }
+}
+
+/* showcase----------------------------------------------------------------------------------- */
+
+.showcase {
+    
+    .showcase__container {
+        display: flex;
+    }
+
+    .showcase__list-categories {
+        display: flex;
+        flex-direction: column;
+        row-gap: 23px;
+        max-width: 418px;
+        padding: 45px 138px 81px 158px;
+        background: $base-gray-background;
+        margin-left: -160px;
+
+        .showcase__item-category {
+            min-width: 140px;
+            max-height: 15px;
+        }
+        
+        .showcase__btn-category {
+            background: transparent;
+            font-family: "Montserrat";
+            font-weight: 500;
+            line-height: normal;
+            font-size: $font-size-categories-books;
+            color: $base-gray;
+            cursor: pointer;
+            position: relative;
+
+            &:hover::before,
+            &:focus::before {
+                content: "";
+                position: absolute;
+                top: 4.5px;
+                left: -14px;
+                width: 6px;
+                height: 6px;
+                background: #756ad3;
+                border-radius: 50%;
+            }
+
+            &:hover,
+            &:focus {
+                color: $base-black;
+                font-size: $font-size-categories-books-hover;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .showcase__set-books {
+        margin-left: -60px;
+        margin-bottom: 96px;
+        padding-top: 46px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-auto-rows: 1fr;
+        column-gap: 76px;
+        row-gap: 96px;
+
+        .showcase__book {
+            display: flex;
+            column-gap: 36px;
+
+            .showcase__book-cover {
+                min-width: 212px;
+                max-height: 300px;
+
+                .showcase__book-cover-img {
+                    width: 100%;
+                    height: 100%;
+                    /* min-width: 212px; */
+                    /* max-height: 300px; */
+                    object-fit: cover;
+                    box-shadow: 0px 24px 36px 0px rgba(53, 49, 84, 0.28);
+                }
+            }
+
+            .showcase__book-info {
+                padding: 48px 0;
+                max-width: 176px;
+                display: flex;
+                flex-direction: column;
+                row-gap: 16px;
+                justify-content: space-between;
+
+                font-family: "Open Sans";
+                font-weight: 400;
+                font-size: $font-size-book-info;
+
+                .showcase__book-data {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 4px;
+
+                    .showcase__book-title {
+                        font-weight: 700;
+                        font-size: $font-size-book-title;
+                        color: $base-black;
+                    }
+
+                    .showcase__book-rating {
+                        display: flex;
+                        column-gap: 6px;
+                        flex-wrap: wrap;
+
+                        .showcase__stars {
+                            display: flex;
+                            flex-wrap: nowrap;
+                        }
+                    }
+                }
+
+                .showcase__book-description {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    /* text-overflow: ellipsis;
+                    white-space: nowrap; */
+                    max-height: 41px;
+                }
+
+                .showcase__book-price {
+                    font-weight: 700;
+                    font-size: $font-size-book-price;
+                    color: $base-black;
+                    text-transform: uppercase
+                }
+
+                .showcase__buy-btn {
+                    background: transparent;
+                    width: 100%;
+                    padding: 18px 0;
+                    border: solid 1px $base-button;
+                    color: $base-button;
+
+                    font-family: "Montserrat";
+                    font-weight: 700;
+                    font-size: $font-size-book-buy-btn;
+                    text-transform: uppercase;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: rgba($base-button, $alpha: 0.05)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1140px) {
+    .showcase {
+    
+        .showcase__list-categories {
+            max-width: 418px;
+            padding: 45px 80px 81px 158px;
+        }
+    }
+}
+
+/* button-load-------------------------------------------------------------------------------- */
+
+.button-load__container {
+    display: flex;
+    justify-content: center;
+
+    .button-load__more-btn {
+        margin-left: 17.5%;
+        background: transparent;
+        padding: 18px 61px;
+        border: solid 1px $base-button;
+        color: $base-button;
+
+        font-family: "Montserrat";
+        font-weight: 700;
+        font-size: $font-size-book-buy-btn;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba($base-button, $alpha: 0.05)
         }
     }
 }
