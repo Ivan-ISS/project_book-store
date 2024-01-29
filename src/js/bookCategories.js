@@ -1,6 +1,6 @@
 export class BookCategories {
 
-    constructor(apiKey, startIndex, maxResults, langRestrict, btnCategory) {
+    constructor(apiKey, startIndex, maxResults, langRestrict, btnCategory, bookShop) {
         this.subject = '';
         this.apiKey = apiKey;
         this.printType = 'books';
@@ -9,6 +9,8 @@ export class BookCategories {
         this.langRestrict = langRestrict;
 
         this.btnCategory = btnCategory;
+
+        this.bookShop = bookShop;
     }
 
     createUrl() {
@@ -26,7 +28,7 @@ export class BookCategories {
                 console.log(this.url);
                 this.string = '0';
 
-                return fetch(this.url)
+                /* return */ fetch(this.url)
                     .then((response) => {
                         console.log('response', response);
                         const result = response.json();
@@ -34,13 +36,21 @@ export class BookCategories {
                         return result;
                     })
                     .then((data) => {
-                        console.log(data);
+                        /* console.log(data);
                         console.log(data.items[0].volumeInfo);
                         console.log(data.items[0].volumeInfo.imageLinks);
                         console.log(data.items[0].volumeInfo.authors);
                         console.log(data.items[0].volumeInfo.title);
                         console.log(data.items[0].volumeInfo.description);
-                        console.log(data.items[0].volumeInfo.categories);
+                        console.log(data.items[0].volumeInfo.categories); */
+
+                        this.imageCoverLinks = data.items[0].volumeInfo.imageLinks;
+                        this.authors = data.items[0].volumeInfo.authors;
+                        this.title = data.items[0].volumeInfo.title;
+                        this.description = data.items[0].volumeInfo.description;
+
+                        this.bookShop.getData();
+
                         //const pictureJSON = [];
                         
                         //data.forEach((item) => {

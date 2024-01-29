@@ -1,10 +1,12 @@
 import { circleSwitch, automaticSwitch } from './slider';
-import { BookCategories } from './bookCategories';
+/* import { BookCategories } from './bookCategories'; */
+import { BookShop } from './bookShop';
 import '../styles/styles.scss';
 
 document.write('Hello, webpack-dev-server');
 
-
+//----------------------------------------------------------------------------------------------------
+//------------------------------ОПРЕДЕЛЕНИЕ ВХОДНЫХ ДАННЫХ ДЛЯ СЛАЙДЕРА-------------------------------
 const entities = [
     {
         img: './images/png/banner-sale.png',
@@ -21,17 +23,31 @@ const picture = document.querySelector('.banner__image-slide');
 const btnCircle = document.querySelectorAll('.selection__circle-btn');
 const cssBtnCircle = 'selection__circle-btn-focus';
 
+
+//----------------------------------------------------------------------------------------------------
+//-------------------------------------------ЗАПУСК СЛАЙДЕРА------------------------------------------
 circleSwitch(btnCircle, cssBtnCircle, picture, entities);
 automaticSwitch(btnCircle, cssBtnCircle, picture, entities);
 
 
 
-
+//----------------------------------------------------------------------------------------------------
+//--------------------------ОПРЕДЕЛЕНИЕ ВХОДНЫХ ДАННЫХ ДЛЯ КНИЖНОГО МАГАЗИНА--------------------------
 const btnCategory = document.querySelectorAll('.showcase__btn-category');
+/* const showcase = document.querySelectorAll('.showcase__set-books'); */
 console.log(btnCategory);
 
-const bookCategory = new BookCategories('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 1, 'en', btnCategory);
-bookCategory.request();
+
+//----------------------------------------------------------------------------------------------------
+//--------------------------------------ЗАПУСК КНИЖНОГО МАГАЗИНА--------------------------------------
+const bookShop = new BookShop('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 1, 'en', btnCategory);
+bookShop.bookCategory.request();
+
+
+
+
+/* const bookCategory = new BookCategories('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 1, 'en', btnCategory);
+bookCategory.request(); */
 
 /* function useRequest(url) {
     return fetch(url)
