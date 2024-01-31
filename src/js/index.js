@@ -34,14 +34,16 @@ automaticSwitch(btnCircle, cssBtnCircle, picture, entities);
 //----------------------------------------------------------------------------------------------------
 //--------------------------ОПРЕДЕЛЕНИЕ ВХОДНЫХ ДАННЫХ ДЛЯ КНИЖНОГО МАГАЗИНА--------------------------
 const btnCategory = document.querySelectorAll('.showcase__btn-category');
+const displayPlaceBooks = document.querySelector('.showcase__set-books');
+let firstEntry = true;
 /* const showcase = document.querySelectorAll('.showcase__set-books'); */
-console.log(btnCategory);
+/* console.log(btnCategory); */
 
 
 //----------------------------------------------------------------------------------------------------
 //--------------------------------------ЗАПУСК КНИЖНОГО МАГАЗИНА--------------------------------------
-const bookShop = new BookShop('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 1, 'en', btnCategory);
-bookShop.bookCategory.request();
+const bookShop = new BookShop('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 6, 'ru', btnCategory, displayPlaceBooks, firstEntry);
+bookShop.run();
 
 
 

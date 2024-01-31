@@ -1,6 +1,6 @@
 export class BookCategories {
 
-    constructor(apiKey, startIndex, maxResults, langRestrict, btnCategory, bookShop) {
+    constructor(apiKey, startIndex, maxResults, langRestrict, btnCategory, bookShop, firstEntry) {
         this.subject = '';
         this.apiKey = apiKey;
         this.printType = 'books';
@@ -9,8 +9,8 @@ export class BookCategories {
         this.langRestrict = langRestrict;
 
         this.btnCategory = btnCategory;
-
         this.bookShop = bookShop;
+        this.firstEntry = firstEntry;
     }
 
     createUrl() {
@@ -18,53 +18,94 @@ export class BookCategories {
     }
 
     request() {
+        fetch(this.url)
+            .then((response) => {
+                console.log('response', response);
+                const result = response.json();
+                console.log('result', result);
+                return result;
+            })
+            .then((data) => {
+                console.log(data);
+                let booksJSON = [];
+
+                data.items.forEach((item) => {
+                    booksJSON.push({
+                        imageCoverLinks: item.volumeInfo.imageLinks.thumbnail,
+                        author: item.volumeInfo.authors,
+                        title: item.volumeInfo.title,
+                        description: item.volumeInfo.description,
+                    });
+                });
+
+                localStorage.setItem('booksJSON', JSON.stringify(booksJSON));
+                this.bookShop.card.createContent();
+            })
+            .catch(() => {
+                console.log('error');
+            });
+    }
+
+    defaultLoad() {
+        this.subject = this.btnCategory[0].innerText;
+        this.createUrl();
+        this.request();
+    }
+
+    handlerButton() {
         for (let i = 0; i < this.btnCategory.length; i++) {
             this.btnCategory[i].addEventListener('click', (event) => {
-                console.log(event.currentTarget);
-                console.log(event.currentTarget.innerText);
+                // console.log(event.currentTarget);
+                // console.log(event.currentTarget.innerText);
                 this.subject = event.currentTarget.innerText;
+                // this.btnCategory[i].classList.add('.active');
+                if (this.firstEntry) {
+                    this.subject = this.btnCategory[0].innerText;
+                    this.firstEntry = false;
+                }
                 this.createUrl();
+                this.request();
 
-                console.log(this.url);
-                this.string = '0';
+                // console.log(this.url);
 
-                /* return */ fetch(this.url)
-                    .then((response) => {
-                        console.log('response', response);
-                        const result = response.json();
-                        console.log('result', result);
-                        return result;
-                    })
-                    .then((data) => {
-                        /* console.log(data);
-                        console.log(data.items[0].volumeInfo);
-                        console.log(data.items[0].volumeInfo.imageLinks);
-                        console.log(data.items[0].volumeInfo.authors);
-                        console.log(data.items[0].volumeInfo.title);
-                        console.log(data.items[0].volumeInfo.description);
-                        console.log(data.items[0].volumeInfo.categories); */
+                // fetch(this.url)
+                //     .then((response) => {
+                //         console.log('response', response);
+                //         const result = response.json();
+                //         console.log('result', result);
+                //         return result;
+                //     })
+                //     .then((data) => {
+                //         console.log(data);
+                        // console.log(data.items[0].volumeInfo);
+                        // console.log(data.items[0].volumeInfo.imageLinks);
+                        // console.log(data.items[0].volumeInfo.authors);
+                        // console.log(data.items[0].volumeInfo.title);
+                        // console.log(data.items[0].volumeInfo.description);
+                        // console.log(data.items[0].volumeInfo.categories);
 
-                        this.imageCoverLinks = data.items[0].volumeInfo.imageLinks;
-                        this.authors = data.items[0].volumeInfo.authors;
-                        this.title = data.items[0].volumeInfo.title;
-                        this.description = data.items[0].volumeInfo.description;
+                        // this.imageCoverLinks = data.items[0].volumeInfo.imageLinks.thumbnail;
+                        // this.authors = data.items[0].volumeInfo.authors;
+                        // this.title = data.items[0].volumeInfo.title;
+                        // this.description = data.items[0].volumeInfo.description;
 
-                        this.bookShop.getData();
+                    //     let booksJSON = [];
 
-                        //const pictureJSON = [];
-                        
-                        //data.forEach((item) => {
-                        //    pictureJSON.push({
-                        //        src: item.download_url,
-                        //        author: item.author,
-                        //    });
-                        //});
-                        //localStorage.setItem('pictureJSON', JSON.stringify(pictureJSON));
-                    //console.log(localStorage)
-                    })
-                    .catch(() => {
-                        console.log('error');
-                    });
+                    //     data.items.forEach((item) => {
+                    //         booksJSON.push({
+                    //             imageCoverLinks: item.volumeInfo.imageLinks.thumbnail,
+                    //             author: item.volumeInfo.authors,
+                    //             title: item.volumeInfo.title,
+                    //             description: item.volumeInfo.description,
+                    //        });
+                    //     });
+
+                    //     localStorage.setItem('booksJSON', JSON.stringify(booksJSON));
+                    //     this.bookShop.card.createContent();
+                    // })
+                    // .catch(() => {
+                    //     console.log('error');
+                    // });
             });
         }
     }
