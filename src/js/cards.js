@@ -1,11 +1,6 @@
 export class Cards {
 
-    constructor(/* imageCoverLinks, authors, title, description, price, */ displayPlaceBooks) {
-        // this.imageCoverLinks = imageCoverLinks;
-        // this.authors = authors;
-        // this.title = title;
-        // this.description = description;
-        // this.price = price;
+    constructor(displayPlaceBooks) {
         this.displayPlaceBooks = displayPlaceBooks;
     }
 
@@ -55,7 +50,7 @@ export class Cards {
             `;
             cards = cards + content;
         });
-        this.displayPlaceBooks.innerHTML = cards;
+        this.displayPlaceBooks.innerHTML += cards;
         return cards;
     }
 }

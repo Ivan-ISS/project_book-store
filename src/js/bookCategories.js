@@ -1,6 +1,6 @@
 export class BookCategories {
 
-    constructor(apiKey, startIndex, maxResults, langRestrict, btnCategory, bookShop, firstEntry) {
+    constructor(apiKey, startIndex, maxResults, langRestrict, btnCategory, btnLoadMore, displayPlaceBooks, bookShop) {
         this.subject = '';
         this.apiKey = apiKey;
         this.printType = 'books';
@@ -10,7 +10,15 @@ export class BookCategories {
 
         this.btnCategory = btnCategory;
         this.bookShop = bookShop;
-        this.firstEntry = firstEntry;
+        this.btnLoadMore = btnLoadMore;
+        this.displayPlaceBooks = displayPlaceBooks;
+    }
+
+    defaultLoad() {
+        this.displayPlaceBooks.innerHTML = '';
+        this.subject = this.btnCategory[0].innerText;
+        this.createUrl();
+        this.request();
     }
 
     createUrl() {
@@ -27,6 +35,10 @@ export class BookCategories {
             })
             .then((data) => {
                 console.log(data);
+                // this.imageCoverLinks = data.items[0].volumeInfo.imageLinks.thumbnail;
+                // this.authors = data.items[0].volumeInfo.authors;
+                // this.title = data.items[0].volumeInfo.title;
+                // this.description = data.items[0].volumeInfo.description;
                 let booksJSON = [];
 
                 data.items.forEach((item) => {
@@ -46,67 +58,28 @@ export class BookCategories {
             });
     }
 
-    defaultLoad() {
-        this.subject = this.btnCategory[0].innerText;
-        this.createUrl();
-        this.request();
-    }
-
     handlerButton() {
         for (let i = 0; i < this.btnCategory.length; i++) {
             this.btnCategory[i].addEventListener('click', (event) => {
-                // console.log(event.currentTarget);
-                // console.log(event.currentTarget.innerText);
+                this.displayPlaceBooks.innerHTML = '';
                 this.subject = event.currentTarget.innerText;
                 // this.btnCategory[i].classList.add('.active');
                 if (this.firstEntry) {
                     this.subject = this.btnCategory[0].innerText;
                     this.firstEntry = false;
                 }
+
                 this.createUrl();
                 this.request();
-
-                // console.log(this.url);
-
-                // fetch(this.url)
-                //     .then((response) => {
-                //         console.log('response', response);
-                //         const result = response.json();
-                //         console.log('result', result);
-                //         return result;
-                //     })
-                //     .then((data) => {
-                //         console.log(data);
-                        // console.log(data.items[0].volumeInfo);
-                        // console.log(data.items[0].volumeInfo.imageLinks);
-                        // console.log(data.items[0].volumeInfo.authors);
-                        // console.log(data.items[0].volumeInfo.title);
-                        // console.log(data.items[0].volumeInfo.description);
-                        // console.log(data.items[0].volumeInfo.categories);
-
-                        // this.imageCoverLinks = data.items[0].volumeInfo.imageLinks.thumbnail;
-                        // this.authors = data.items[0].volumeInfo.authors;
-                        // this.title = data.items[0].volumeInfo.title;
-                        // this.description = data.items[0].volumeInfo.description;
-
-                    //     let booksJSON = [];
-
-                    //     data.items.forEach((item) => {
-                    //         booksJSON.push({
-                    //             imageCoverLinks: item.volumeInfo.imageLinks.thumbnail,
-                    //             author: item.volumeInfo.authors,
-                    //             title: item.volumeInfo.title,
-                    //             description: item.volumeInfo.description,
-                    //        });
-                    //     });
-
-                    //     localStorage.setItem('booksJSON', JSON.stringify(booksJSON));
-                    //     this.bookShop.card.createContent();
-                    // })
-                    // .catch(() => {
-                    //     console.log('error');
-                    // });
             });
         }
+    }
+
+    loadMore() {
+        this.btnLoadMore.addEventListener('click', () => {
+            this.startIndex = this.startIndex + this.maxResults;
+            this.createUrl();
+            this.request();
+        });
     }
 }
