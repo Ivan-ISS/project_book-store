@@ -38,12 +38,13 @@ body {
   font-weight: 700;
   line-height: normal;
   color: #5c6a79;
+  background: #fff;
 }
 
 /* ------------------------------------------------------------------------------------------- */
 .wrapper {
   min-height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
 }
@@ -98,6 +99,10 @@ body {
 /* header------------------------------------------------------------------------------------- */
 .header {
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
 }
 .header .header__container {
   display: flex;
@@ -143,6 +148,7 @@ body {
 /* main--------------------------------------------------------------------------------------- */
 .page {
   flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .page__banner {

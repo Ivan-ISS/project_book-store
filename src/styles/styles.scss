@@ -39,13 +39,14 @@ body {
     font-weight: 700;
     line-height: normal;
     color: $base-gray;
+    background: $base-white;
 }
 
 /* ------------------------------------------------------------------------------------------- */
 
 .wrapper {
     min-height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
 }
@@ -107,6 +108,10 @@ body {
 
 .header {
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: $base-white;
 
     .header__container {
         display: flex;
@@ -164,6 +169,7 @@ body {
 
 .page {
     flex: 1 1 auto;
+    overflow: hidden;
 }
 
 .page__banner {

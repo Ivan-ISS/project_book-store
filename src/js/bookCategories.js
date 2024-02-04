@@ -28,9 +28,9 @@ export class BookCategories {
     request() {
         fetch(this.url)
             .then((response) => {
-                console.log('response', response);
+                // console.log('response', response);
                 const result = response.json();
-                console.log('result', result);
+                // console.log('result', result);
                 return result;
             })
             .then((data) => {
