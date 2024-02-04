@@ -432,6 +432,27 @@ body {
     }
 }
 
+@media (max-width: 1170px) {
+    .showcase {
+
+        .showcase__set-books {
+
+            .showcase__book {
+
+                .showcase__book-info {
+                
+                    .showcase__book-data {
+
+                        .showcase__book-title {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 /* button-load-------------------------------------------------------------------------------- */
 
 .button-load__container {

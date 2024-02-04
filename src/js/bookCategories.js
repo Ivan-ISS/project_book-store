@@ -43,10 +43,13 @@ export class BookCategories {
 
                 data.items.forEach((item) => {
                     booksJSON.push({
-                        imageCoverLinks: item.volumeInfo.imageLinks.thumbnail,
+                        imageCoverLinks: item.volumeInfo.imageLinks?.thumbnail,
                         author: item.volumeInfo.authors,
                         title: item.volumeInfo.title,
+                        rating: item.volumeInfo.averageRating,
+                        review: item.volumeInfo.ratingsCount,
                         description: item.volumeInfo.description,
+                        retailPrice: item.saleInfo.retailPrice,
                     });
                 });
 
@@ -62,12 +65,9 @@ export class BookCategories {
         for (let i = 0; i < this.btnCategory.length; i++) {
             this.btnCategory[i].addEventListener('click', (event) => {
                 this.displayPlaceBooks.innerHTML = '';
-                this.subject = event.currentTarget.innerText;
+                this.subject = event.currentTarget.dataset.attribute;
+                console.log(event.currentTarget.dataset.attribute);
                 // this.btnCategory[i].classList.add('.active');
-                if (this.firstEntry) {
-                    this.subject = this.btnCategory[0].innerText;
-                    this.firstEntry = false;
-                }
 
                 this.createUrl();
                 this.request();

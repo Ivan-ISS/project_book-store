@@ -282,7 +282,7 @@ body {
 .showcase .showcase__set-books .showcase__book .showcase__book-cover {
   min-width: 212px;
   /* max-height: 300px; */
-  background: #9e9e9e;
+  background: #eee4e4;
   box-shadow: 0px 24px 36px 0px rgba(53, 49, 84, 0.28);
 }
 .showcase .showcase__set-books .showcase__book .showcase__book-cover .showcase__book-cover-img {
@@ -358,6 +358,11 @@ body {
   .showcase .showcase__list-categories {
     max-width: 418px;
     padding: 45px 80px 81px 158px;
+  }
+}
+@media (max-width: 1170px) {
+  .showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-data .showcase__book-title {
+    font-size: 14px;
   }
 }
 /* button-load-------------------------------------------------------------------------------- */
