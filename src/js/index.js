@@ -36,13 +36,15 @@ automaticSwitch(btnCircle, cssBtnCircle, picture, entities);
 const btnCategory = document.querySelectorAll('.showcase__btn-category');
 const btnLoadMore = document.querySelector('.button-load__more-btn');
 const displayPlaceBooks = document.querySelector('.showcase__set-books');
+const shopBagCount = document.querySelector('.header__shop-bag-count');
+const btnBuyNameClass = '.showcase__buy-btn';
 
-/* console.log(btnCategory); */
+// console.log(btnBuy);
 
 
 //----------------------------------------------------------------------------------------------------
 //--------------------------------------ЗАПУСК КНИЖНОГО МАГАЗИНА--------------------------------------
-const bookShop = new BookShop('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 6, 'ru', btnCategory, btnLoadMore, displayPlaceBooks);
+const bookShop = new BookShop('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 6, 'ru', btnCategory, btnLoadMore, displayPlaceBooks, shopBagCount, btnBuyNameClass);
 bookShop.run();
 
 

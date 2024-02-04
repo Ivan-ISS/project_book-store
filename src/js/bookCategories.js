@@ -30,19 +30,17 @@ export class BookCategories {
             .then((response) => {
                 // console.log('response', response);
                 const result = response.json();
-                // console.log('result', result);
                 return result;
             })
             .then((data) => {
                 console.log(data);
                 // this.imageCoverLinks = data.items[0].volumeInfo.imageLinks.thumbnail;
                 // this.authors = data.items[0].volumeInfo.authors;
-                // this.title = data.items[0].volumeInfo.title;
-                // this.description = data.items[0].volumeInfo.description;
                 let booksJSON = [];
 
                 data.items.forEach((item) => {
                     booksJSON.push({
+                        id: item.id,
                         imageCoverLinks: item.volumeInfo.imageLinks?.thumbnail,
                         author: item.volumeInfo.authors,
                         title: item.volumeInfo.title,
@@ -55,6 +53,7 @@ export class BookCategories {
 
                 localStorage.setItem('booksJSON', JSON.stringify(booksJSON));
                 this.bookShop.card.createContent();
+                this.bookShop.shopBag.counterProduct();
             })
             .catch(() => {
                 console.log('error');
@@ -66,8 +65,11 @@ export class BookCategories {
             this.btnCategory[i].addEventListener('click', (event) => {
                 this.displayPlaceBooks.innerHTML = '';
                 this.subject = event.currentTarget.dataset.attribute;
-                console.log(event.currentTarget.dataset.attribute);
-                // this.btnCategory[i].classList.add('.active');
+
+                this.btnCategory.forEach(function(element) {
+                    element.classList.remove('active');
+                });
+                event.currentTarget.classList.add('active');
 
                 this.createUrl();
                 this.request();

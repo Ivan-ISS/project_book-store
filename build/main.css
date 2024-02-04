@@ -144,6 +144,22 @@ body {
 .header .header__tools .header__btn svg path {
   fill: #1c2a39;
 }
+.header .header__tools .header__btn_view_shop-bag {
+  position: relative;
+}
+.header .header__tools .header__btn_view_shop-bag .header__shop-bag-count {
+  position: absolute;
+  bottom: 0;
+  right: -4px;
+  color: #FFF;
+  font-family: "Montserrat";
+  font-size: 10px;
+  font-weight: 500;
+  background: #ff353a;
+  padding: 0 4px;
+  border-radius: 50%;
+  display: none;
+}
 
 /* main--------------------------------------------------------------------------------------- */
 .page {
@@ -359,6 +375,11 @@ body {
 .showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn:hover {
   background: rgba(76, 61, 178, 0.05);
 }
+.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn-active {
+  opacity: 0.5;
+  border: solid 1px #5c6a79;
+  color: #5c6a79;
+}
 
 @media (max-width: 1140px) {
   .showcase .showcase__list-categories {
@@ -367,6 +388,9 @@ body {
   }
 }
 @media (max-width: 1170px) {
+  .showcase .showcase__set-books .showcase__book .showcase__book-cover {
+    min-width: 160px;
+  }
   .showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__book-data .showcase__book-title {
     font-size: 14px;
   }
@@ -440,11 +464,11 @@ body {
   .showcase .showcase__set-books {
     margin-left: -60px;
     padding-top: 46px;
-    column-gap: 46px;
+    column-gap: 30px;
     row-gap: 76px;
   }
   .showcase .showcase__set-books .showcase__book {
-    column-gap: 26px;
+    column-gap: 10px;
   }
   .showcase .showcase__set-books .showcase__book .showcase__book-cover {
     min-width: 140px;

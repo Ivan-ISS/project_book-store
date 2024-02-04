@@ -162,6 +162,26 @@ body {
                 fill: $base-black;
             }
         }
+
+        .header__btn_view_shop-bag {
+            position: relative;
+
+            .header__shop-bag-count {
+                position: absolute;
+                bottom: 0;
+                right: -4px;
+
+                color: #FFF;
+                font-family: "Montserrat";
+                font-size: 10px;
+                font-weight: 500;
+                background: #ff353a;
+                padding: 0 4px;
+                border-radius: 50%;
+
+                display: none;
+            }
+        }
     }
 }
 
@@ -423,6 +443,12 @@ body {
                         background: rgba($base-button, $alpha: 0.05)
                     }
                 }
+
+                .showcase__buy-btn-active {
+                    opacity: 0.5;
+                    border: solid 1px $base-gray;
+                    color: $base-gray;
+                }
             }
         }
     }
@@ -444,6 +470,10 @@ body {
         .showcase__set-books {
 
             .showcase__book {
+
+                .showcase__book-cover {
+                    min-width: 160px;
+                }
 
                 .showcase__book-info {
                 

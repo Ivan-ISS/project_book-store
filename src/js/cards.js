@@ -1,7 +1,8 @@
 export class Cards {
 
-    constructor(displayPlaceBooks) {
+    constructor(displayPlaceBooks, bookShop) {
         this.displayPlaceBooks = displayPlaceBooks;
+        this.bookShop = bookShop;
     }
 
     displayCard() {
@@ -39,13 +40,14 @@ export class Cards {
                     </div>
                     <p class="showcase__book-description">${item.description ? item.description : 'No description'}</p>
                     <span class="showcase__book-price">${item.retailPrice?.amount ? item.retailPrice?.amount + ' ' + item.retailPrice?.currencyCode : ''}</span>
-                    <button class="showcase__buy-btn">Buy now</button>
+                    <button class="showcase__buy-btn" id="${item.id}">Buy now</button>
                 </div>
             </div>
             `;
             cards = cards + content;
         });
         this.displayPlaceBooks.innerHTML += cards;
+        this.bookShop.shopBag.checkingBooksInShopBag();
         return cards;
     }
 }
