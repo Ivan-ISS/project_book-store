@@ -52,8 +52,9 @@ export class BookCategories {
                 });
 
                 localStorage.setItem('booksJSON', JSON.stringify(booksJSON));
-                this.bookShop.card.createContent();
-                this.bookShop.shopBag.counterProduct();
+                document.dispatchEvent(this.bookShop.requestEvent);
+                // this.bookShop.card.createContent();
+                // this.bookShop.shopBag.counterProduct();
             })
             .catch(() => {
                 console.log('error');

@@ -47,7 +47,8 @@ export class Cards {
             cards = cards + content;
         });
         this.displayPlaceBooks.innerHTML += cards;
-        this.bookShop.shopBag.checkingBooksInShopBag();
+        document.dispatchEvent(this.bookShop.createContentEvent);
+        //this.bookShop.shopBag.checkingBooksInShopBag();
         return cards;
     }
 }

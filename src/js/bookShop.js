@@ -7,12 +7,23 @@ export class BookShop {
         this.card = new Cards(displayPlaceBooks, this);
         this.bookCategory = new BookCategories(apiKey, startIndex, maxResults, langRestrict, btnCategory, btnLoadMore, displayPlaceBooks, this);
         this.shopBag = new ShopBag(shopBagCount, btnBuyNameClass);
+
+        this.requestEvent = new Event('requestCompleted');
+        this.createContentEvent = new Event('createContentCompleted');
     }
 
     run() {
         this.bookCategory.defaultLoad();
         this.bookCategory.handlerButton();
         this.bookCategory.loadMore();
-        // this.shopBag.counterProduct();
+
+        document.addEventListener('requestCompleted', () => {
+            this.card.createContent();
+            this.shopBag.counterProduct();
+        });
+
+        document.addEventListener('createContentCompleted', () => {
+            this.shopBag.checkingBooksInShopBag();
+        });
     }
 }

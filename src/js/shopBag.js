@@ -4,7 +4,6 @@ export class ShopBag {
         this.btnBuyNameClass = btnBuyNameClass;
         this.shopBagCount = shopBagCount;
         this.count = 0;
-        // this.booksInShopBag = {};
         this.booksInShopBag = JSON.parse(localStorage.getItem('booksInShopBag')) ? JSON.parse(localStorage.getItem('booksInShopBag')) : {};
         console.log(this.booksInShopBag);
     }
@@ -20,7 +19,6 @@ export class ShopBag {
     }
 
     removeLocalStorage(book) {
-        // const data = JSON.parse(localStorage.getItem('booksInShopBag'));
         if (book in this.booksInShopBag) {
             delete this.booksInShopBag[book];
             localStorage.setItem('booksInShopBag', JSON.stringify(this.booksInShopBag));
@@ -30,7 +28,6 @@ export class ShopBag {
 
     checkingBooksInShopBag() {
         this.btnBuy = document.querySelectorAll(this.btnBuyNameClass);
-        // const books = JSON.parse(localStorage.getItem('booksInShopBag'));
         if (this.booksInShopBag) this.count = Object.keys(this.booksInShopBag).length;
 
         console.log(this.booksInShopBag);
