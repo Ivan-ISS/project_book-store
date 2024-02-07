@@ -9,7 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, './build'),
         filename: 'main.js'
     },
-    mode: 'development',
+    mode: 'production',
     module: {
         rules: [
             {
@@ -21,8 +21,8 @@ module.exports = {
     plugins: [new MiniCssExtractPlugin(), new ESLintPlugin()],
     optimization: {
         minimizer: [
-          `...`,
-          new CssMinimizerPlugin(),
+            `...`,
+            new CssMinimizerPlugin(),
         ],
     },
     devServer: {
