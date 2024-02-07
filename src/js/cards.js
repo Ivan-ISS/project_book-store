@@ -6,10 +6,6 @@ export class Cards {
     }
 
     displayCard() {
-
-    }
-
-    createContent() {
         let cards = '';
         const data = JSON.parse(localStorage.getItem('booksJSON'));
         data.forEach((item) => {
@@ -48,7 +44,7 @@ export class Cards {
         });
         this.displayPlaceBooks.innerHTML += cards;
         document.dispatchEvent(this.bookShop.createContentEvent);
-        //this.bookShop.shopBag.checkingBooksInShopBag();
-        return cards;
+        // this.bookShop.shopBag.checkingBooksInShopBag();
+        // return cards;
     }
 }

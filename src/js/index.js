@@ -1,5 +1,4 @@
 import { circleSwitch, automaticSwitch } from './slider';
-/* import { BookCategories } from './bookCategories'; */
 import { BookShop } from './bookShop';
 import '../styles/styles.scss';
 
@@ -30,7 +29,6 @@ circleSwitch(btnCircle, cssBtnCircle, picture, entities);
 automaticSwitch(btnCircle, cssBtnCircle, picture, entities);
 
 
-
 //----------------------------------------------------------------------------------------------------
 //--------------------------ОПРЕДЕЛЕНИЕ ВХОДНЫХ ДАННЫХ ДЛЯ КНИЖНОГО МАГАЗИНА--------------------------
 const btnCategory = document.querySelectorAll('.showcase__btn-category');
@@ -39,45 +37,22 @@ const displayPlaceBooks = document.querySelector('.showcase__set-books');
 const shopBagCount = document.querySelector('.header__shop-bag-count');
 const btnBuyNameClass = '.showcase__buy-btn';
 
-// console.log(btnBuy);
+const classActive = 'active';
+const textBuyNow = 'BUY NOW';
+const textInTheCart = 'IN THE CART';
+
+const apiKey = 'AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8';
+const startIndex = 0;
+const maxResults = 6;
+const langRestrict = 'ru';
 
 
 //----------------------------------------------------------------------------------------------------
 //--------------------------------------ЗАПУСК КНИЖНОГО МАГАЗИНА--------------------------------------
-const bookShop = new BookShop('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 6, 'ru', btnCategory, btnLoadMore, displayPlaceBooks, shopBagCount, btnBuyNameClass);
+const bookShop = new BookShop
+(
+    apiKey, startIndex, maxResults, langRestrict, btnCategory, 
+    btnLoadMore, displayPlaceBooks, shopBagCount, btnBuyNameClass,
+    classActive, textBuyNow, textInTheCart
+);
 bookShop.run();
-
-
-
-
-/* const bookCategory = new BookCategories('AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8', 0, 1, 'en', btnCategory);
-bookCategory.request(); */
-
-/* function useRequest(url) {
-    return fetch(url)
-        .then((response) => {
-            console.log('response', response);
-            const result = response.json();
-            console.log('result', result);
-            return result;
-        })
-        .then((data) => {
-            console.log(data);
-            //const pictureJSON = [];
-            
-            //data.forEach((item) => {
-            //    pictureJSON.push({
-            //        src: item.download_url,
-            //        author: item.author,
-            //    });
-            //});
-            //localStorage.setItem('pictureJSON', JSON.stringify(pictureJSON));
-          //console.log(localStorage)
-        })
-        .catch(() => { console.log('error'); });
-}
-
-btnCategory.addEventListener('click', () => {
-    let url = 'https://www.googleapis.com/books/v1/volumes?q=%22subject:Business%22&key=AIzaSyAHob8U_bK0Ced2hyWjsF5PVWDP91OBS-8&printType=books&startIndex=0&maxResults=1&langRestrict=en';
-    useRequest(url);
-}); */

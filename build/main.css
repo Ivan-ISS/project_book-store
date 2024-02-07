@@ -375,7 +375,7 @@ body {
 .showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn:hover {
   background: rgba(76, 61, 178, 0.05);
 }
-.showcase .showcase__set-books .showcase__book .showcase__book-info .showcase__buy-btn-active {
+.showcase .showcase__set-books .showcase__book .showcase__book-info .active {
   opacity: 0.5;
   border: solid 1px #5c6a79;
   color: #5c6a79;
